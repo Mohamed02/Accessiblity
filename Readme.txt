@@ -4,7 +4,14 @@ ACCESSIBLITY of APPLICATION:
   and one wiht color contrast issues),auditory, Congnitory, motor impairments, dexterity impairment
   broker wrist, dyslexia etc.
   
-  
+  ON a highlevel we have to takecare following items to make teh web app accessible
+    1. Must have a sensible DOM ORDER
+    2. FOCUS ing on required elments
+    3. usage of SEMANTICS tags wheever necessary
+    4. Able to navigage through the page via Keyboard
+    5. LABELLING links,images appropriately
+
+
   
 WebContent Accessiblity Guideline2.0 (WCAG)
 
@@ -63,6 +70,9 @@ FOCUS:
     will take you tab focus to the all the navs on the left panel. but it will be hidden for the user (that is , it is an offscreen content). this is not an appropritate behaviour.
     So Better hide the drawer using style display:none or visiblity hidden and then change it to block.
 
+    So if you want to hide an element hide it direclty usign hidden, or display none, thus it wont be readable by screen reader.
+    But dont hide it indirectly through opacity or z index, because though it is invisible, the screen reader will read it.
+
     you can use document.activeElement to find element which are currently focussed.
 
 
@@ -107,6 +117,45 @@ SEMANTICS:
    <a href="/"> <img src="asdfasdf"/> </a>
 
 
+  simillary to get a checkbox ..use slect box and not imitate checkbox behaviour with a div element.
+
    The link text should be intuitive that it should say what is is supposed to do.
 
    use HTML5 semantics tag such as header, footer, main , nav , section which help screen reader  to read it in a much more meanignful way.
+
+  
+ARIA attributes:
+
+        Aria attributes can modify the semantic information on the field. with these attributes we can information to the field which the html tags cannot add
+
+        if you use custom fields rather than native fields it is recommended to have explicit aria attributes on the field for the screen reader to read the role and state of the field
+
+        custom checkboxes are constructed with div , where as native checkboxes are constructed with input tag of type check box
+
+        <div aria-checked="true" role="checkbox"></div>
+
+        we have other attributes such as 
+
+          aria-expanded
+          aria-pressed
+          aria-label
+          aria-labbelledby  - its value is the id of the element whcih has the label in it
+          aria-describedby - its value is the id of the element whcih has the description in it
+          aria-posinset- position of the element in the section
+          aria-setsize - size of the set
+      aria-owns: It is used to represent a part of the dom (which is under different parent) as a sub content
+
+      aria-activedescendent: IT tell id of the element inside the parent  must be focussed.
+      aria-hidden: we can hide a some of the content to be read by screen reader such as graphs or charts using aria hidden attribute.
+      aria-live: It is used to reprent an element which is live and loaded through live streaming such as notificaiton
+      aria-atomic:
+      aria-relevent:
+
+STYLING:
+        styling the web pages to support web accessiblity,
+
+        we can add style based on aria attribute
+
+        .toggle[aria-pressed="true"]{
+          
+        }

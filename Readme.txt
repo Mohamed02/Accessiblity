@@ -147,7 +147,7 @@ ARIA attributes:
 
       aria-activedescendent: IT tell id of the element inside the parent  must be focussed.
       aria-hidden: we can hide a some of the content to be read by screen reader such as graphs or charts using aria hidden attribute.
-      aria-live: It is used to reprent an element which is live and loaded through live streaming such as notificaiton
+      aria-live: It is used to reprent an element which is live and loaded through live streaming such as notificaiton. THis is used for reading chat client when a message is recieved.
       aria-atomic:
       aria-relevent:
 
